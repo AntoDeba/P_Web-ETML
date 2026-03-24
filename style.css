@@ -1,4 +1,154 @@
 body{
+    margin: 0;
     background-image: linear-gradient(#805e46,#795b45);
     font-family:Arial, Helvetica, sans-serif;
+    color: azure;
+}
+nav{
+    display: flex;
+    justify-content:space-around;
+    width: 80%;
+}
+nav a{
+    color: azure;
+    text-decoration: none;
+}
+nav a:hover{
+    color: rgb(200, 214, 214);
+}
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    background-color: #4e3c2fc5;
+    top: 0px;
+}
+.logo{
+    width: 85px;
+}
+main{
+    margin-top: 70px;
+}
+.TitleUnderLayer{
+    background-image: url(img/masseDeGrain.jpg);
+    background-size:cover;
+    background-position: 0px;
+}
+.TitleUpperLayer{
+    background-image: linear-gradient(#805e4600,#805E46);
+    padding-top: 10%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.TitleUpperLayer h1{
+    font-size: 5em;
+}
+.TitlebuttonContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    width: 50%;
+    flex-wrap: wrap;
+}
+.Titlebutton1{
+    color: #816e61;
+    text-decoration-line: none;
+    padding: 9px;
+    border-radius: 5px;
+    background-color:rgb(253, 253, 253);
+    margin: 5px;
+}
+.Titlebutton1:hover{
+    color: #816e61d0;
+    background-color:rgba(253, 253, 253, 0.521);
+}
+.Titlebutton2{
+    color: rgb(253, 253, 253);
+    text-decoration-line: none;
+    padding: 9px;
+    border-radius: 5px;
+    background-color:rgba(0, 0, 0, 0.205);
+}
+.Titlebutton2:hover{
+    color: rgba(253, 253, 253, 0.589);
+    background-color:rgba(0, 0, 0, 0.096);
+}
+.ChapterContainer{
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(0, 0, 0);
+}
+.Chapter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.ChapterContainer img{
+    border-radius: 50px;
+}
+.InverseChapter{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    
+    justify-content:space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+    .Chapter img{
+        width:90%;
+    }
+    .InverseChapter img{
+        width:90%;
+    }
+    .InverseChapter div{
+        width:90%;
+    }
+    .Chapter div{
+        width:90%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .Chapter img{
+        width:45%;
+    }
+    .InverseChapter img{
+        width:45%;
+    }
+    .InverseChapter div{
+        width: 45%;
+    }
+    .Chapter div{
+        width: 45%;
+    }
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.171);
+}
+footer a,p{
+    color: rgb(186, 188, 190);
+    text-decoration: none;
+    padding: 20px;
+}
+footer a:hover{
+    color: rgb(146, 147, 148);
 }

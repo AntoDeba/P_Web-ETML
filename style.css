@@ -106,6 +106,7 @@ main{
 }
 .ChapterContainer img{
     border-radius: 50px;
+    outline: 2px dashed rgb(255, 255, 255);
 }
 .InverseChapter{
     display: flex;
@@ -163,6 +164,7 @@ footer a:hover{
     color: rgb(146, 147, 148);
 }
 
+/*Partie permettant au deux div de la page variete d'être côte à côte*/
 .varieteFlexHolder{
     display: flex;
     align-items: center;
@@ -181,6 +183,11 @@ footer a:hover{
 
 .Title{
     text-align: center;
+    border-bottom: 2px dotted rgba(0, 0, 0, 0.212);
+}
+.Title h1{
+    margin-top: 110px;
+    margin-bottom: 40px
 }
 
 .source p,a{

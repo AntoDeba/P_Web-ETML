@@ -15,6 +15,10 @@ p{
     color: rgb(186, 188, 190);
     padding: 20px;
 }
+textarea,input{
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+}
 
 /* ============ Navbar ================ */
 nav{
@@ -206,6 +210,7 @@ footer a:hover{
     outline: var(--outline-img-width) dashed var(--outline-img-color);
 }
 
+
 .videoInspirationHolder{
     display: flex;
     flex-wrap: wrap;
@@ -217,4 +222,55 @@ footer a:hover{
     margin: 20px;
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) dashed var(--outline-img-color);
+}
+
+
+.ContactHolder{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 30px;
+}
+
+.ContactHolder div{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    max-width: 90%;
+    padding: 10px;
+}
+
+.ContactHolder input,.ContactHolder textarea{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-radius: 6px;
+    height: 25px;
+}
+
+.ContactHolder textarea {
+    height: 100px;
+}
+
+.ContactBottom{
+    display:flex;
+    justify-content: center;
+}
+
+.ContactBottom button{
+    margin-bottom: 60px;
+    
+    color: #816e61;
+    
+    padding: 12px;
+    border-radius: 5px;
+    background-color:rgb(253, 253, 253);
+    border: none;
+    width: 150px;
+}
+
+.ContactBottom button:hover{
+    color: #816e61d0;
+    background-color:rgba(253, 253, 253, 0.521);
 }

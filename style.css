@@ -121,7 +121,8 @@ main{
 }
 .ChapterContainer img{
     border-radius: var(--radius-border-img);
-    outline: var(--outline-img-width) dashed var(--outline-img-color);
+    outline: var(--outline-img-width) solid var(--outline-img-color);
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.123);
 }
 .InverseChapter{
     display: flex;
@@ -231,7 +232,8 @@ footer a:hover{
     max-width: 90%;
     margin: 20px;
     border-radius: var(--radius-border-img);
-    outline: var(--outline-img-width) dashed var(--outline-img-color);
+    outline: var(--outline-img-width) solid var(--outline-img-color);
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.123);
 }
 
 

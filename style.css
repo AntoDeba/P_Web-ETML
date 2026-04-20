@@ -127,12 +127,16 @@ main{
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    
     justify-content:space-between;
-    padding: 20px;
     flex-wrap: wrap;
-}
 
+    padding: 20px;
+    background-color: #70513b;
+    
+}
+.upperWave{
+    margin-bottom: -5px;
+}
 
 /*Adapte les taille des image en fonction de la taille de l'écran*/
 @media screen and (max-width: 768px) {
@@ -156,7 +160,7 @@ footer{
     align-items: center;
     justify-content:flex-start;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.171);
+    background-color: rgba(0, 0, 0, 0.281);
 }
 footer a{
     color: rgb(186, 188, 190);

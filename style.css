@@ -2,7 +2,11 @@
   --outline-img-color: rgb(255, 255, 255);
   --outline-img-width: 2px;
   --radius-border-img: 50px;
-  --default-background-color: #805e46
+  --default-background-color: #805e46;
+
+  --default-shadow : 20px 20px 10px rgba(0, 0, 0, 0.123);
+  --hoverBoxShadow : 30px 30px 10px rgba(0, 0, 0, 0.192);
+  --hoverImgSizeIncrease : scale(1.03);
 }
 
 body{
@@ -49,6 +53,7 @@ header{
     width: 100%;
     background-color: #4e3c2fc5;
     top: 0px;
+    z-index: 1;
 }
 .logo{
     width: 85px;
@@ -122,7 +127,11 @@ main{
 .ChapterContainer img{
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) solid var(--outline-img-color);
-    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.123);
+    box-shadow: var(--default-shadow);
+}
+.ChapterContainer img:hover{
+    box-shadow: var(--hoverBoxShadow);
+    transform: var(--hoverImgSizeIncrease);
 }
 .InverseChapter{
     display: flex;
@@ -184,10 +193,24 @@ footer a:hover{
     width: 500px;
     max-width: 90%;
 }
-.NextToItem img{
+.NextToItem  img{
     width: 500px;
     max-width: 90%;
     border-radius: 30px;
+}
+.NextToItem img:hover{
+    transform: var(--hoverImgSizeIncrease);
+}
+
+#myPhoto img{
+    border-radius: var(--radius-border-img);
+    outline: var(--outline-img-width) solid var(--outline-img-color);
+    box-shadow: var(--default-shadow);
+}
+
+#myPhoto img:hover{
+    box-shadow: var(--hoverBoxShadow);
+    transform: var(--hoverImgSizeIncrease);
 }
 
 .Title{
@@ -217,8 +240,15 @@ footer a:hover{
     margin: 10px;
     max-width: 90%;
     width: 500px;
+
     border-radius: var(--radius-border-img);
-    outline: var(--outline-img-width) dashed var(--outline-img-color);
+    outline: var(--outline-img-width) solid var(--outline-img-color);
+    box-shadow: var(--default-shadow);
+}
+
+.AuteurLobby img:hover{
+    box-shadow: var(--hoverBoxShadow);
+    transform: var(--hoverImgSizeIncrease);
 }
 
 
@@ -233,7 +263,11 @@ footer a:hover{
     margin: 20px;
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) solid var(--outline-img-color);
-    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.123);
+    box-shadow: var(--default-shadow);
+}
+.videoInspirationItem:hover{
+    box-shadow: var(--hoverBoxShadow);
+    transform: var(--hoverImgSizeIncrease);
 }
 
 
@@ -259,9 +293,12 @@ footer a:hover{
     border-radius: 6px;
     height: 25px;
     background-color: var(--default-background-color);
-    background-color: rgba(255, 255, 255, 0.24);
-    border: 2px solid black;
-    
+    border: 2px solid rgba(255, 255, 255, 0.384);
+    color: white;
+}
+
+.ContactHolder input:hover,.ContactHolder textarea:hover{
+    border: 2px solid rgba(255, 255, 255, 0.788);
 }
 
 .ContactHolder textarea {

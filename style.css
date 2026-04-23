@@ -17,6 +17,7 @@ body{
     color: azure;
     font-size: 1.3rem;
 }
+
 p{
     color: rgb(186, 188, 190);
     padding: 20px;
@@ -32,11 +33,12 @@ nav{
     display: flex;
     justify-content:space-around;
     width: 80%;
+
 }
 nav a{
     color: azure;
     text-decoration: none;
-    
+    transition: 300ms ease;
 }
 nav a:hover{
     opacity: 0.5;
@@ -56,7 +58,7 @@ header{
     width: 100%;
     background-color: #4e3c2fc5;
     top: 0px;
-    z-index: 1;
+    z-index: 10;
 }
 .logo{
     width: 85px;
@@ -76,16 +78,97 @@ main{
 .TitleUpperLayer{
     background-image: linear-gradient(#805e4600,var(--default-background-color));
     padding-top: 10%;
-    padding-bottom: 10%;
+    padding-bottom: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.TitleUpperLayer h1{
-    font-size: 5em;
+.TitleUpperLayer h1,p,a{
+    z-index: 2;
+}
+/*Les grains de café ont une animation qui les fait descendre, en tournant. Ils ont des vitesses et des delais différents pour un aire plus naturelle*/
+.fallingBeanHolder{
+    position: absolute;
+    width: calc(100% - 150px);
+    height: 60%;
+    top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.fallingBean{
+    height: 4rem;
+    position: relative;
+    
+    animation-name: falling;
+    
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.fallingBean:nth-of-type(1) {
+    animation-duration: 1.4s;
+    animation-delay: 0.1s;
+}
+.fallingBean:nth-of-type(2) {
+    animation-duration: 1.6s;
+    animation-delay: 0.6s;
+}
+.fallingBean:nth-of-type(3) {
+    animation-duration: 1.5s;
+    animation-delay: 0.4s;
+}
+.fallingBean:nth-of-type(4) {
+    animation-duration: 1.7s;
+    animation-delay: 1s;
+}
+.fallingBean:nth-of-type(5) {
+    animation-duration: 1.9s;
+    animation-delay: 0.4s;
+}
+.fallingBean:nth-of-type(6) {
+    animation-duration: 2s;
+    animation-delay: 0.1s;
 }
 
+@keyframes falling {
+0% {
+    top: 0%;
+}
+20%{
+   transform: translateX(75px);
+}
+50% {
+  
+    opacity: 100%;
+}
+99%{
+    transform: rotate(180deg);
+}
+100%{
+    top: 130%;
+    opacity: 0%;
+    transform: translateX(-75px);
+}
+}
+
+.TitleUpperLayer h1{
+    font-size: 5em;
+    margin-bottom: 0px;
+}
+
+.TitleUpperLayer p {
+    animation-name: Apparition;
+    animation-duration: 2s;
+    text-align: center;
+}
+
+@keyframes Apparition {
+  from {
+    opacity: 0%;
+    transform: scale(0.5);
+}
+  to {opacity: 100%;}
+}
 
 .buttonContainer{ /*Contient les deux boutons de l'écran d'acceuil*/
     display: flex;
@@ -106,6 +189,7 @@ main{
 .button1:hover{
     color: #816e61d0;
     background-color:rgba(253, 253, 253, 0.521);
+    transition: 400ms ease;
 }
 .button2{
     color: rgb(253, 253, 253);
@@ -113,10 +197,12 @@ main{
     padding: 12px;
     border-radius: 5px;
     background-color:rgba(0, 0, 0, 0.205);
+    transition: 400ms ease;
 }
 .button2:hover{
     color: rgba(253, 253, 253, 0.589);
     background-color:rgba(0, 0, 0, 0.096);
+    
 }
 
 /*Chapter et InverseChapter sont contenu dans ChapterContainer. Les chapters sont utilisé pour mettre une image à droite d'un titre et d'un texte. Dans les InverseChapter, le coté de l'image est simplement inversé*/
@@ -132,6 +218,7 @@ main{
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) solid var(--outline-img-color);
     box-shadow: var(--default-shadow);
+    transition: 100ms ease;
 }
 .ChapterContainer img:hover{
     box-shadow: var(--hoverBoxShadow);
@@ -182,6 +269,8 @@ footer a{
     color: rgb(186, 188, 190);
     text-decoration: none;
     padding: 20px;
+    transition: 300ms ease;
+    
 }
 footer a:hover{
     color: rgb(146, 147, 148);
@@ -203,6 +292,7 @@ footer a:hover{
     width: 500px;
     max-width: 90%;
     border-radius: 30px;
+    transition: 100ms ease;
 }
 .NextToItem img:hover{
     transform: var(--hoverImgSizeIncrease);
@@ -213,6 +303,7 @@ footer a:hover{
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) solid var(--outline-img-color);
     box-shadow: var(--default-shadow);
+    transition: 100ms ease;
 }
 
 #photoAuthor img:hover{
@@ -252,6 +343,7 @@ footer a:hover{
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) solid var(--outline-img-color);
     box-shadow: var(--default-shadow);
+    transition: 100ms ease;
 }
 
 .AuteurLobby img:hover{
@@ -272,6 +364,7 @@ footer a:hover{
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) solid var(--outline-img-color);
     box-shadow: var(--default-shadow);
+    transition: 100ms ease;
 }
 .videoInspirationItem:hover{
     box-shadow: var(--hoverBoxShadow);
@@ -302,6 +395,8 @@ footer a:hover{
     background-color: var(--default-background-color);
     border: 2px solid rgba(255, 255, 255, 0.384);
     color: white;
+
+    transition: 300ms ease;
 }
 
 .ContactHolder input:hover,.ContactHolder textarea:hover{
@@ -327,6 +422,8 @@ footer a:hover{
     background-color:rgb(253, 253, 253);
     border: none;
     width: 150px;
+
+    transition: 300ms ease;
 }
 
 .ContactBottom button:hover{

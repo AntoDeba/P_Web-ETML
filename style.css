@@ -142,7 +142,7 @@ main{
     opacity: 100%;
 }
 99%{
-    transform: rotate(180deg);
+    transform: rotate(180deg); /*on ne peut avoir qu'une */
 }
 100%{
     top: 130%;
@@ -163,11 +163,11 @@ main{
 }
 
 @keyframes Apparition {
-  from {
-    opacity: 0%;
-    transform: scale(0.5);
-}
-  to {opacity: 100%;}
+    from {
+        opacity: 0%;
+        transform: scale(0.5);
+    }
+    to {opacity: 100%;}
 }
 
 .buttonContainer{ /*Contient les deux boutons de l'écran d'acceuil*/
@@ -382,7 +382,7 @@ footer a:hover{
 .ContactHolder div{
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 300px;
     max-width: 90%;
     padding: 10px;
 }
@@ -395,7 +395,7 @@ footer a:hover{
     background-color: var(--default-background-color);
     border: 2px solid rgba(255, 255, 255, 0.384);
     color: white;
-
+    padding: 7px;
     transition: 300ms ease;
 }
 
@@ -433,9 +433,18 @@ footer a:hover{
 
 form{
     background-color: rgba(255, 255, 255, 0.055);
-    width: 95%;
+    max-width: 90%;
+    width: 1000px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 80px;
+    border-radius: 40px;
+}
+
+form *::placeholder{
+    color: rgba(255, 255, 255, 0.452);
+}
+
+.centeredText{
+    text-align: center;
 }

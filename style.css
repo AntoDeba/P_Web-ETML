@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+
 :root { 
   --outline-img-color: rgb(255, 255, 255);
   --outline-img-width: 2px;
@@ -87,7 +89,7 @@ main{
 .TitleUpperLayer h1,p,a{
     z-index: 2;
 }
-/*Les grains de café ont une animation qui les fait descendre, en tournant. Ils ont des vitesses et des delais différents pour un aire plus naturelle*/
+/*Les grains de café ont une animation qui les fait descendre et tourner. Ils ont des vitesses et des delais différents pour un air plus naturelle*/
 .fallingBeanHolder{
     position: absolute;
     width: calc(100% - 150px);
@@ -130,6 +132,7 @@ main{
     animation-delay: 0.1s;
 }
 
+/*Ceci est l'animation de chute des grains de cafés. "transform: rotate(180deg);" et "transform: translateX(-75px);" ne sont pas dans la meme ligne car il n'est pas possible d'avoir deux transforms dans la même ligne*/
 @keyframes falling {
 0% {
     top: 0%;
@@ -142,7 +145,7 @@ main{
     opacity: 100%;
 }
 99%{
-    transform: rotate(180deg); /*on ne peut avoir qu'une */
+    transform: rotate(180deg);
 }
 100%{
     top: 130%;
@@ -154,6 +157,9 @@ main{
 .TitleUpperLayer h1{
     font-size: 5em;
     margin-bottom: 0px;
+    font-family: "Emblema One", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .TitleUpperLayer p {

@@ -50,6 +50,7 @@ nav img{
     margin-bottom: -9px;
     margin-right: 10px;
 }
+
 header{
     display: flex;
     flex-direction: row;
@@ -99,7 +100,8 @@ main{
     justify-content: space-evenly;
 }
 .fallingBean{
-    height: 4rem;
+    height: 10vw;
+    max-height: 5rem;
     position: relative;
     
     animation-name: falling;
@@ -160,6 +162,7 @@ main{
     font-family: "Emblema One", system-ui;
     font-weight: 400;
     font-style: normal;
+    text-align: center;
 }
 
 .TitleUpperLayer p {

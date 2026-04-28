@@ -62,6 +62,8 @@ document.addEventListener('keydown', function(event) {
     }
 })
 
+
+
 //fait bouger le grain de café
 setInterval(()=>{
     cartoonBean.style.transition = "transform 1000ms linear";

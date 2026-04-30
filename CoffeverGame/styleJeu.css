@@ -4,7 +4,7 @@
     margin-bottom: 20px;
     width: calc(60vw + 10vh);
     background-color: aliceblue;
-    height: 80vh; /*vh correspond à l'unité de la taille de l'écran*/
+    height: 120vh; /*vh correspond à l'unité de la taille de l'écran*/
     background-image: url(../img/Route.gif);
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,4 +38,24 @@
     justify-content: center;
     flex-direction: column;
     
+}
+
+.HideTop{
+    background-color: #805e46;
+    width: calc(60vw + 10vh);
+    height: 20vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+}
+
+.Hidebottom{
+    background-color: #805e46;
+    width: calc(60vw + 10vh);
+    height: 20vh;
+    position: absolute;
+    z-index: 3;
+    margin-top: 100vh;
 }

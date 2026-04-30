@@ -2,18 +2,22 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    width: 90vw;
-    height: 30%;
+    width: calc(60vw + 10vh);
     background-color: aliceblue;
     height: 80vh; /*vh correspond à l'unité de la taille de l'écran*/
+    background-image: url(../img/Route.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-rendering:pixelated;
 }
 
 .voiture{
-    width: 10vh;
+    width: 9vh;
     transition: transform 100ms linear;
     position: absolute;
     z-index: 2;
     transform: translate(100px,10px);
+    image-rendering:pixelated;
 }
 
 .cartoonBean{
@@ -26,7 +30,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    width: 90vw;
+    width: calc(60vw + 10vh);
     height: 80vh; /*vh correspond à l'unité de la taille de l'écran*/
     background-color: rgb(187, 76, 76);
     display: flex;

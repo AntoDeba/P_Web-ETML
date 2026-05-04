@@ -37,7 +37,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
+    background-image: url(../img/Deathscreen.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-rendering:pixelated;
+    background-position: 50%;
 }
 
 .HideTop{
@@ -58,4 +62,24 @@
     position: absolute;
     z-index: 3;
     margin-top: 100vh;
+}
+
+.buttonHolder{
+    z-index: 5;
+    height: 120vh;
+    display: flex;
+}
+
+.buttonLeft{
+    height: 120vh;
+    width: 50%;
+    border: none;
+    background-color: rgba(234, 0, 255, 0);
+    
+}
+.buttonRight{
+    height: 120vh;
+    width: 50%;
+    background-color: rgba(234, 0, 255, 0);
+    border: none;
 }

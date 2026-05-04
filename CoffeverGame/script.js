@@ -7,20 +7,20 @@ var ecranDeJeu = document.querySelector("#gameHolder");
 var finalScore = document.querySelector("#finalScore");
 var mort = false;
 var touchéParGrain = false;
-
-ecranDeMort.style.display = "none";
-
+var boutonDroite = document.querySelector('#buttonRight');
+var boutonGauche = document.querySelector('#buttonLeft');
 var timeOfOneFallVoiture = 1000;
 var timeOfOneFallGrain = 1500;
-
 var positionXJoueur = 60;
 var positionXObstacle = 0;
 var positionYObstacle = 0;
-
 var positionXGrain = 0;
 var positionYGrain = 0;
-
 var scoreInt = 0;
+var bestScoreInt = localStorage.getItem("bestScoreInt");
+var bestScore = document.querySelector('#bestScore');
+localStorage.removeItem("name");
+ecranDeMort.style.display = "none";
 
 //Calculateur de points
 setInterval(() => {
@@ -94,6 +94,7 @@ setInterval(()=>{
         {
             var randomPos = Math.random()
             positionYGrain = 0;
+            cartoonBean.style.opacity = "100%";
             if(randomPos > 0.666)
             {
                 positionXGrain = 0;
@@ -108,7 +109,7 @@ setInterval(()=>{
 
             timeOfOneFallGrain = timeOfOneFallGrain-(timeOfOneFallGrain/100);
 
-            console.log(timeOfOneFallGraina);
+            console.log(timeOfOneFallGrain);
         }
     }
 },10)
@@ -127,6 +128,19 @@ document.addEventListener('keydown', function(event) {
         positionXJoueur = positionXJoueur + 30;
     }
 })
+//détection des boutons
+boutonDroite.addEventListener("click", (event) => {
+    if(positionXJoueur < 60)
+    {
+        positionXJoueur = positionXJoueur + 30;
+    }
+});
+boutonGauche.addEventListener("click", (event) => {
+    if(positionXJoueur > 0){
+        positionXJoueur = positionXJoueur - 30;
+    }
+   
+});
 
 //Actualisation de la positionX du joueur et la position de l'obstacle
 setInterval(() => {
@@ -142,6 +156,16 @@ setInterval(()=>{
     {
         ecranDeMort.style.display = "flex";
         ecranDeJeu.style.display = "none";
+        finalScore.textContent = "score final : " + scoreInt
+        if(bestScoreInt < scoreInt)
+        {
+            bestScore.textContent = "NOUVEAU MEILLEUR SCORE !!!"
+            localStorage.setItem("bestScoreInt", scoreInt);
+        }
+        else{
+            bestScore.textContent = "Meilleur score: "+bestScoreInt
+        }
+        
         mort = true
     }
 },1)
@@ -153,7 +177,7 @@ setInterval(()=>{
         if(touchéParGrain == false){
             scoreInt = scoreInt + 50
             touchéParGrain = true;
-            finalScore.textContent = "score final : " + scoreInt
+            cartoonBean.style.opacity = "0%";
         }
 
     }

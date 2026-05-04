@@ -6,17 +6,17 @@
     <title>Jeu - Coffever</title>
     <meta name="author" content="Antoni Débaz">
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <link rel="stylesheet" type="text/css" href="styleJeu.css">
+    <link rel="stylesheet" type="text/css" href="./styleJeu.css">
     <link href="../img/icon.png" rel="icon" type="image/png">
 </head>
 <body>
     <header>
         <nav>
-            <a href="../index.html"><img src="../img/home-alt-2.png">Accueil</a>
-            <a href="../inspiration.html"><img src="../img/light-bulb-alt.png">Inspiration</a>
-            <a href="../contact.html"><img src="../img/phone.png">Contact</a>
+            <a href="../index.html"><img src="../img/home-alt-2.png" alt="Accueil">Accueil</a>
+            <a href="../inspiration.html"><img src="../img/light-bulb-alt.png" alt="Inspiration">Inspiration</a>
+            <a href="../contact.html"><img src="../img/phone.png" alt="Contact">Contact</a>
         </nav>
-        <a href="../index.html"><img src="../img/logo.png" class="logo"></a> 
+        <a href="../index.html"><img src="../img/logo.png" class="logo" alt="Logo"></a> 
     </header>
     <main>
         <section class="Title">
@@ -24,26 +24,31 @@
         </section>
         <section>
             <p class="centeredText">
-                Votre réveil n'a pas sonné et vous devez foncer pour compléter votre livraison de café quitte à aller à contre-sens sur l'autoroute ! 
+                Votre réveil n'a pas sonné et vous devez foncer pour compléter votre livraison de café quitte à aller à contre-sens sur l'autoroute ! Evitez les voitures avec "A" et "D" (ou cliquer sur les bords de l'écran) et récupérez les grains de café sur la route à bord de la coffever mobile ! 
             </p>
-            <p class="centeredText">
-                Evitez les voitures avec "A" et "D" et récupérez les grains de café sur la route à bord de la coffever mobile !  
-            </p>
-            
-                
-            </h2>
+     
             <div class="gameHolder" id="gameHolder">
                 <div class="HideTop">
                     <h2 class="centeredText" id="score"></h2>
                 </div>
-                <img src="../img/joueur.png" class="voiture" id="joueur">
-                <img src="../img/voiture1.png" class="voiture" id="obstacle">
-                <img src="../img/cartoonBean.png" class="cartoonBean" id="cartoonBean">
+                <img src="../img/joueur.png" class="voiture" id="joueur" alt="joueur">
+                <img src="../img/voiture1.png" class="voiture" id="obstacle" alt="obstacle">
+                <img src="../img/cartoonBean.png" class="cartoonBean" id="cartoonBean" alt="grain de café">
                 <div class="Hidebottom"></div>
+                <div class="buttonHolder">
+                    <button class="buttonLeft" id="buttonLeft">
+
+                    </button>
+                    <button class="buttonRight" id="buttonRight">
+
+                    </button>
+                </div>
+                
             </div>
             <div id="ecranDeMort">
-                <h2 class="centeredText">Votre véhicule à été mis en pièce !</h2>
+                <h2 class="centeredText">Votre camion est détruit !</h2>
                 <h2 class="centeredText" id="finalScore"></h2>
+                <h2 class="centeredText" id="bestScore"></h2>
                 <a href="index.html" class="button1">Recommencer</a>
             </div>
         </section>

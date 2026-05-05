@@ -6,7 +6,7 @@ var ecranDeMort = document.querySelector("#ecranDeMort");
 var ecranDeJeu = document.querySelector("#gameHolder");
 var finalScore = document.querySelector("#finalScore");
 var mort = false;
-var touchéParGrain = false;
+var IsHitByCoffeeBean = false;
 var boutonDroite = document.querySelector('#buttonRight');
 var boutonGauche = document.querySelector('#buttonLeft');
 var timeOfOneFallVoiture = 1000;
@@ -19,7 +19,9 @@ var positionYGrain = 0;
 var scoreInt = 0;
 var bestScoreInt = localStorage.getItem("bestScoreInt");
 var bestScore = document.querySelector('#bestScore');
-localStorage.removeItem("name");
+var popUp = document.querySelector('#popUp');
+var TimeToLivePopUp = 400;
+
 ecranDeMort.style.display = "none";
 
 //Calculateur de points
@@ -174,15 +176,36 @@ setInterval(()=>{
 setInterval(()=>{
     if(cartoonBean.getBoundingClientRect().bottom > joueur.getBoundingClientRect().top && cartoonBean.getBoundingClientRect().top < joueur.getBoundingClientRect().bottom && cartoonBean.getBoundingClientRect().right > joueur.getBoundingClientRect().left && cartoonBean.getBoundingClientRect().left < joueur.getBoundingClientRect().right )
     {
-        if(touchéParGrain == false){
+        if(IsHitByCoffeeBean == false){
             scoreInt = scoreInt + 50
-            touchéParGrain = true;
+            IsHitByCoffeeBean = true;
             cartoonBean.style.opacity = "0%";
+            
+            popUp.style.transform = "translate("+positionXGrain+"vw,"+positionYGrain+"vh)";
+            popUp.style.opacity = "100%";
         }
-
     }
     else
     {
-        touchéParGrain = false;
+        IsHitByCoffeeBean = false;
+        
     }
+},1)
+
+//Supprime la popup après un certain temps en vérifiant si elle a changer de position
+setInterval(()=>{
+
+    if(IsHitByCoffeeBean == true){
+        TimeToLivePopUp = TimeToLivePopUp -1;
+    }
+    if(TimeToLivePopUp < 400)
+    {
+        TimeToLivePopUp = TimeToLivePopUp -1;
+    }
+    if(TimeToLivePopUp == 0)
+    {
+        TimeToLivePopUp = 400;
+        popUp.style.opacity = "0%";
+    }
+    
 },1)

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: myFont; /* set name */
+  src: url(../img/ARCADECLASSIC.TTF); /* url of the font */
+}
 .gameHolder{
     margin-left: auto;
     margin-right: auto;
@@ -9,6 +13,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     image-rendering:pixelated;
+
+    font-family: myFont;
+    image-rendering: pixelated;
+    font-size: larger;
 }
 
 .voiture{
@@ -22,7 +30,7 @@
 
 .cartoonBean{
     z-index: 1;
-    width: 5vh;
+    width: 4vh;
     position: absolute;
 }
 
@@ -42,6 +50,15 @@
     background-size: cover;
     image-rendering:pixelated;
     background-position: 50%;
+    
+    font-family: myFont;
+    image-rendering: pixelated;
+    font-size: larger;
+    color: rgb(255, 255, 255);
+}
+
+#ecranDeMort h2{
+    background-color: rgba(0, 0, 0, 0.205);
 }
 
 .HideTop{
@@ -82,4 +99,11 @@
     width: 50%;
     background-color: rgba(234, 0, 255, 0);
     border: none;
+}
+
+#popUp{
+    position: absolute;
+    z-index: 3;
+    opacity: 0%;
+    color: gold;
 }

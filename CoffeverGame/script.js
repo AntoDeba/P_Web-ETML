@@ -120,8 +120,11 @@ setInterval(()=>{
 //detection des touches
 document.addEventListener('keydown', function(event) {
     
+    console.log(event.key);
+
     if(event.key === 'a'&& positionXJoueur > 0)
     {
+        
         positionXJoueur = positionXJoueur - 30;
     }
     

@@ -21,6 +21,9 @@ var bestScoreInt = localStorage.getItem("bestScoreInt");
 var bestScore = document.querySelector('#bestScore');
 var popUp = document.querySelector('#popUp');
 var TimeToLivePopUp = 400;
+var isGold = false;
+var isInvincible = false;
+var BeingHitByCar = false;
 
 ecranDeMort.style.display = "none";
 
@@ -77,18 +80,16 @@ setInterval(()=>{
             }
 
             timeOfOneFallVoiture = timeOfOneFallVoiture-(timeOfOneFallVoiture/100);
-
-            console.log(timeOfOneFallVoiture);
         }
     }
 },10)
 
 
-//Actualisation de la positionX du grain de café quand elle apparait en haut aléatoirement puis de sa chute
+//Actualisation de la positionX du grain de café quand il apparait en haut aléatoirement puis de sa chute
 setInterval(()=>{
     if(mort === false)
     {
-        if(positionYGrain < 115)
+        if(positionYGrain < 100)
         {
             positionYGrain = positionYGrain + 600/timeOfOneFallGrain;
         }
@@ -97,16 +98,25 @@ setInterval(()=>{
             var randomPos = Math.random()
             positionYGrain = 0;
             cartoonBean.style.opacity = "100%";
-            if(randomPos > 0.666)
+            if(randomPos > 0.66666)
             {
                 positionXGrain = 0;
             }
-            else if(randomPos < 0.666 && randomPos > 0.333)
+            else if(randomPos < 0.66666 && randomPos > 0.33333)
             {
                 positionXGrain = 30;
             }
             else{
                 positionXGrain = 60;
+            }
+
+            isGold = false;
+            cartoonBean.src="../img/beanPixelated.png";
+            var randomGold = Math.random()
+            if(randomGold < 0.05)
+            {
+                isGold = true;
+                cartoonBean.src="../img/GoldenBeanPixelated.png";
             }
 
             timeOfOneFallGrain = timeOfOneFallGrain-(timeOfOneFallGrain/100);
@@ -157,28 +167,46 @@ setInterval(() => {
 //getBoundingClientRect sert a récupérer la taille et la position
 //cette fonction sert à detecter les collisions entre l'obstacle et la voiture
 setInterval(()=>{
+
+    
     if(obstacle.getBoundingClientRect().bottom > joueur.getBoundingClientRect().top && obstacle.getBoundingClientRect().top < joueur.getBoundingClientRect().bottom && obstacle.getBoundingClientRect().right > joueur.getBoundingClientRect().left && obstacle.getBoundingClientRect().left < joueur.getBoundingClientRect().right)
     {
-        ecranDeMort.style.display = "flex";
-        ecranDeJeu.style.display = "none";
-        finalScore.textContent = "score final : " + scoreInt
-        if(bestScoreInt < scoreInt)
+        BeingHitByCar = true;
+        if(isInvincible == false)
         {
-            bestScore.textContent = "NOUVEAU MEILLEUR SCORE !!!"
-            localStorage.setItem("bestScoreInt", scoreInt);
+            ecranDeMort.style.display = "flex";
+            ecranDeJeu.style.display = "none";
+            finalScore.textContent = "score final : " + scoreInt
+            if(bestScoreInt < scoreInt)
+            {
+                bestScore.textContent = "NOUVEAU MEILLEUR SCORE !!!"
+                localStorage.setItem("bestScoreInt", scoreInt);
+            }
+            else{
+                bestScore.textContent = "Meilleur score: "+bestScoreInt
+            }
+            
+            mort = true
         }
-        else{
-            bestScore.textContent = "Meilleur score: "+bestScoreInt
+    }
+    else
+    {
+        if(BeingHitByCar == true)
+        {
+            isInvincible = false; //enlève l'invincibilité causer par le grain doré
+            joueur.src="../img/joueur.png";
+            BeingHitByCar = false;
         }
         
-        mort = true
     }
 },1)
+
 
 //cette fonction sert à detecter les collisions entre le grain de café et la voiture
 setInterval(()=>{
     if(cartoonBean.getBoundingClientRect().bottom > joueur.getBoundingClientRect().top && cartoonBean.getBoundingClientRect().top < joueur.getBoundingClientRect().bottom && cartoonBean.getBoundingClientRect().right > joueur.getBoundingClientRect().left && cartoonBean.getBoundingClientRect().left < joueur.getBoundingClientRect().right )
     {
+
         if(IsHitByCoffeeBean == false){
             scoreInt = scoreInt + 50
             IsHitByCoffeeBean = true;
@@ -187,11 +215,16 @@ setInterval(()=>{
             popUp.style.transform = "translate("+positionXGrain+"vw,"+positionYGrain+"vh)";
             popUp.style.opacity = "100%";
         }
+
+        if(isGold == true)
+        {
+            isInvincible = true;
+            joueur.src="../img/joueurGolden.png";
+        }
     }
     else
     {
         IsHitByCoffeeBean = false;
-        
     }
 },1)
 

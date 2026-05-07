@@ -3,6 +3,7 @@
   src: url(../img/ARCADECLASSIC.TTF); /* url of the font */
 }
 .gameHolder{
+    margin-top: -100px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -10,10 +11,10 @@
     background-color: aliceblue;
     height: 120vh; /*vh correspond à l'unité de la taille de l'écran*/
     background-image: url(../img/Route.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat:repeat-x;
     image-rendering:pixelated;
-
+    background-position: 50%;
+    background-size: 400px;
     font-family: myFont;
     image-rendering: pixelated;
     font-size: larger;

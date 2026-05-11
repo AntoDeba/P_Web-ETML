@@ -137,8 +137,17 @@ document.addEventListener('keydown', function(event) {
         
         positionXJoueur = positionXJoueur - 30;
     }
+    if(event.key === 'A'&& positionXJoueur > 0)
+    {
+        
+        positionXJoueur = positionXJoueur - 30;
+    }
     
     if(event.key === 'd' && positionXJoueur < 60)
+    {
+        positionXJoueur = positionXJoueur + 30;
+    }
+    if(event.key === 'D' && positionXJoueur < 60)
     {
         positionXJoueur = positionXJoueur + 30;
     }

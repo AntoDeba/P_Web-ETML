@@ -113,7 +113,7 @@ setInterval(()=>{
             isGold = false;
             cartoonBean.src="../img/beanPixelated.png";
             var randomGold = Math.random()
-            if(randomGold < 0.05)
+            if(randomGold < 0.02)
             {
                 isGold = true;
                 cartoonBean.src="../img/GoldenBeanPixelated.png";

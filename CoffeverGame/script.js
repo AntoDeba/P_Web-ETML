@@ -132,22 +132,13 @@ document.addEventListener('keydown', function(event) {
     
     console.log(event.key);
 
-    if(event.key === 'a'&& positionXJoueur > 0)
-    {
-        
-        positionXJoueur = positionXJoueur - 30;
-    }
-    if(event.key === 'A'&& positionXJoueur > 0)
+    if((event.key === 'A'||event.key === 'a'||event.key === 'ArrowLeft')&& positionXJoueur > 0)
     {
         
         positionXJoueur = positionXJoueur - 30;
     }
     
-    if(event.key === 'd' && positionXJoueur < 60)
-    {
-        positionXJoueur = positionXJoueur + 30;
-    }
-    if(event.key === 'D' && positionXJoueur < 60)
+    if((event.key === 'D'||event.key === 'd'||event.key === 'ArrowRight')&& positionXJoueur < 60)
     {
         positionXJoueur = positionXJoueur + 30;
     }

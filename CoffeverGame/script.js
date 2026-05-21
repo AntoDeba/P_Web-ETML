@@ -142,6 +142,12 @@ document.addEventListener('keydown', function(event) {
     {
         positionXJoueur = positionXJoueur + 30;
     }
+    if(event.key === 'r'|| event.key === 'R')
+    {
+        window.location.replace("./jeu.html");
+    }
+
+
 })
 //détection des boutons
 boutonDroite.addEventListener("click", (event) => {

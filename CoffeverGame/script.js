@@ -24,6 +24,7 @@ var TimeToLivePopUp = 400;
 var isGold = false;
 var isInvincible = false;
 var BeingHitByCar = false;
+var isMAN = false;
 
 ecranDeMort.style.display = "none";
 
@@ -65,18 +66,24 @@ setInterval(()=>{
                 positionXObstacle = 60;
             }
 
-            
+            isMAN = false;
             var randomCar = Math.random()
-            if(randomCar > 0.666)
+            if(randomCar < 0.3)
             {
                 obstacle.src="../img/voiture1.png";
+                
             }
-            else if(randomCar < 0.666 && randomPos > 0.333)
+            if(randomCar > 0.3 && randomCar < 0.6)
             {
                 obstacle.src="../img/voiture2.png";
             }
-            else{
+            if(randomCar > 0.6 && randomCar < 0.98){
                 obstacle.src="../img/voiture3.png";
+            }
+            if(randomCar > 0.98)
+            {
+                obstacle.src="../img/MAN.gif";
+                isMAN = true;
             }
 
             timeOfOneFallVoiture = timeOfOneFallVoiture-(timeOfOneFallVoiture/100);
@@ -178,21 +185,39 @@ setInterval(()=>{
     if(obstacle.getBoundingClientRect().bottom > joueur.getBoundingClientRect().top && obstacle.getBoundingClientRect().top < joueur.getBoundingClientRect().bottom && obstacle.getBoundingClientRect().right > joueur.getBoundingClientRect().left && obstacle.getBoundingClientRect().left < joueur.getBoundingClientRect().right)
     {
         BeingHitByCar = true;
+
+        
         if(isInvincible == false)
         {
-            ecranDeMort.style.display = "flex";
-            ecranDeJeu.style.display = "none";
-            finalScore.textContent = "score final : " + scoreInt
-            if(bestScoreInt < scoreInt)
+            if(isMAN === true) //lance la cinématique si on est rentré dans le conducteur de MAN
             {
-                bestScore.textContent = "NOUVEAU MEILLEUR SCORE !!!"
-                localStorage.setItem("bestScoreInt", scoreInt);
+                if(bestScoreInt < scoreInt)
+                {
+                    localStorage.setItem("bestScoreInt", scoreInt);
+                    
+                }
+
+                console.log("TIME TO DIE");
+                window.location.replace("./cinematique.html");
+
             }
-            else{
-                bestScore.textContent = "Meilleur score: "+bestScoreInt
+            else
+            {
+                ecranDeMort.style.display = "flex";
+                ecranDeJeu.style.display = "none";
+                finalScore.textContent = "score final : " + scoreInt
+                if(bestScoreInt < scoreInt)
+                {
+                    bestScore.textContent = "NOUVEAU MEILLEUR SCORE !!!"
+                    localStorage.setItem("bestScoreInt", scoreInt);
+                }
+                else{
+                    bestScore.textContent = "Meilleur score: "+bestScoreInt
+                }
+                
+                mort = true
             }
-            
-            mort = true
+
         }
     }
     else

@@ -9,7 +9,7 @@
     margin-bottom: 20px;
     width: calc(60vw + 10vh);
     background-color: aliceblue;
-    height: 120vh; /*vh correspond à l'unité de la taille de l'écran*/
+    height: 120vh; /*vh correspond à l'unité de la haueur de l'écran en pourcent*/
     background-image: url(../img/Route.gif);
     background-repeat:repeat-x;
     image-rendering:pixelated;
@@ -107,4 +107,20 @@
     z-index: 3;
     opacity: 0%;
     color: gold;
+}
+
+.cinematiqueHolder{
+    background-color: rgb(255, 255, 255);
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: myFont;
+
+}
+
+.cinematiqueHolder img{
+    image-rendering:pixelated;
+    height: 40vh;
 }

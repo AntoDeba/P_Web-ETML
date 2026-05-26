@@ -68,6 +68,7 @@ setInterval(()=>{
 
             isMAN = false;
             var randomCar = Math.random()
+            console.log(randomCar);
             if(randomCar < 0.3)
             {
                 obstacle.src="../img/voiture1.png";
@@ -77,10 +78,10 @@ setInterval(()=>{
             {
                 obstacle.src="../img/voiture2.png";
             }
-            if(randomCar > 0.6 && randomCar < 0.98){
+            if(randomCar > 0.6 && randomCar < 0.99){
                 obstacle.src="../img/voiture3.png";
             }
-            if(randomCar > 0.98)
+            if(randomCar > 0.99)
             {
                 obstacle.src="../img/MAN.gif";
                 isMAN = true;

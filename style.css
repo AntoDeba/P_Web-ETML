@@ -5,12 +5,14 @@
   --outline-img-width: 2px;
   --radius-border-img: 50px;
   --default-background-color: #805e46;
+  --defaul-secondary-text:rgb(186, 188, 190);
 
   --default-shadow : 20px 20px 10px rgba(0, 0, 0, 0.123);
   --hoverBoxShadow : 30px 30px 10px rgba(0, 0, 0, 0.192);
   --hoverImgSizeIncrease : scale(1.03);
 }
 
+/*========================= Règles CSS générales pour plusieurs page ===================================*/
 body{
     margin: 0;
     background-color: var(--default-background-color) ;
@@ -19,17 +21,137 @@ body{
     font-size: 1.3rem;
 }
 
-p{
-    color: rgb(186, 188, 190);
-    padding: 20px;
+.button1{
+    color: #816e61;
+    text-decoration-line: none;
+    padding: 12px;
+    border-radius: 5px;
+    background-color:rgb(253, 253, 253);
+    margin: 5px;
+}
+.button1:hover{
+    color: #816e61d0;
+    background-color:rgba(253, 253, 253, 0.521);
+    transition: 400ms ease;
+}
+.button2{
+    color: rgb(253, 253, 253);
+    text-decoration-line: none;
+    padding: 12px;
+    border-radius: 5px;
+    background-color:rgba(0, 0, 0, 0.205);
+    transition: 400ms ease;
+}
+.button2:hover{
+    color: rgba(253, 253, 253, 0.589);
+    background-color:rgba(0, 0, 0, 0.096);
     
+}
+
+/*Chapter et InverseChapter sont contenu dans ChapterContainer. Les chapters sont utilisé pour mettre une image à droite d'un titre et d'un texte. Dans les InverseChapter, le coté de l'image est simplement inversé*/
+.Chapter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.ChapterContainer img{
+    border-radius: var(--radius-border-img);
+    outline: var(--outline-img-width) solid var(--outline-img-color);
+    box-shadow: var(--default-shadow);
+    transition: 100ms ease;
+}
+.ChapterContainer img:hover{
+    box-shadow: var(--hoverBoxShadow);
+    transform: var(--hoverImgSizeIncrease);
+}
+.InverseChapter{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+
+    padding: 20px;
+    background-color: #70513b;
+    
+}
+
+/*Adapte les taille des image en fonction de la taille de l'écran*/
+@media screen and (max-width: 768px) {
+    .Chapter img,.InverseChapter img,.InverseChapter div,.Chapter div{
+        width:90%;
+    }
+    .ChapterContainer img{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 768px) {
+    .Chapter img,.InverseChapter img,.InverseChapter div,.Chapter div{
+        width:45%;
+    }
+}
+
+/*Fait en sorte qu'il n'y ai pas de séparation entre le SVG de vague et le div*/
+.upperWave{
+    margin-bottom: -5px;
+}
+
+p{
+    color: var(--defaul-secondary-text) ;
+    padding: 20px; 
+}
+li{
+    color: var(--defaul-secondary-text) ;
 }
 textarea,input{
     font-family:Arial, Helvetica, sans-serif;
     color: rgb(0, 0, 0);
 }
 
-/* ============ Header ================ */
+.centeredText{ 
+    text-align: center;
+}
+
+/*NextToHolder permet à deux NextToItem d'être côte à côte*/
+.NextToHolder{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+.NextToItem{
+    margin: 40px;
+    width: 500px;
+    max-width: 90%;
+}
+.NextToItem  img{
+    width: 500px;
+    max-width: 90%;
+    border-radius: 30px;
+    transition: 100ms ease;
+}
+.NextToItem img:hover{
+    transform: var(--hoverImgSizeIncrease);
+}
+
+.Title{
+    text-align: center;
+    border-bottom: 2px dotted rgba(0, 0, 0, 0.212);
+}
+.Title h1{
+    margin-top: 110px;
+    margin-bottom: 40px
+}
+
+.source p,a{
+    color: rgb(255, 255, 255);
+}
+
+/* ================= Header ========================== */
 nav{
     display: flex;
     justify-content:space-around;
@@ -66,12 +188,12 @@ header{
     width: 85px;
 }
 
-/* ============ Main ================ */
+/* ========================== Page d'acceuil ========================================*/
 main{
     margin-top: 70px; /*Il est baisser pour faire la place  à la navbar*/
 }
 
-/*TitleUnderLayer et TitleUpperLayer permette de mettre un dégradé sur l'image de l'écran d'acceuil*/
+/* TitleUnderLayer et TitleUpperLayer permette de mettre un dégradé sur l'image de l'écran d'acceuil */
 .TitleUnderLayer{
     background-image: url(img/masseDeGrain.jpg);
     background-size:cover;
@@ -188,85 +310,8 @@ main{
     width: 50%;
     flex-wrap: wrap;
 }
-.button1{
-    color: #816e61;
-    text-decoration-line: none;
-    padding: 12px;
-    border-radius: 5px;
-    background-color:rgb(253, 253, 253);
-    margin: 5px;
-}
-.button1:hover{
-    color: #816e61d0;
-    background-color:rgba(253, 253, 253, 0.521);
-    transition: 400ms ease;
-}
-.button2{
-    color: rgb(253, 253, 253);
-    text-decoration-line: none;
-    padding: 12px;
-    border-radius: 5px;
-    background-color:rgba(0, 0, 0, 0.205);
-    transition: 400ms ease;
-}
-.button2:hover{
-    color: rgba(253, 253, 253, 0.589);
-    background-color:rgba(0, 0, 0, 0.096);
-    
-}
 
-/*Chapter et InverseChapter sont contenu dans ChapterContainer. Les chapters sont utilisé pour mettre une image à droite d'un titre et d'un texte. Dans les InverseChapter, le coté de l'image est simplement inversé*/
-.Chapter{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-between;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-.ChapterContainer img{
-    border-radius: var(--radius-border-img);
-    outline: var(--outline-img-width) solid var(--outline-img-color);
-    box-shadow: var(--default-shadow);
-    transition: 100ms ease;
-}
-.ChapterContainer img:hover{
-    box-shadow: var(--hoverBoxShadow);
-    transform: var(--hoverImgSizeIncrease);
-}
-.InverseChapter{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content:space-between;
-    flex-wrap: wrap;
-
-    padding: 20px;
-    background-color: #70513b;
-    
-}
-
-/*Adapte les taille des image en fonction de la taille de l'écran*/
-@media screen and (max-width: 768px) {
-    .Chapter img,.InverseChapter img,.InverseChapter div,.Chapter div{
-        width:90%;
-    }
-    .ChapterContainer img{
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-@media screen and (min-width: 768px) {
-    .Chapter img,.InverseChapter img,.InverseChapter div,.Chapter div{
-        width:45%;
-    }
-}
-
-/*Fait en sorte qu'il n'y ai pas de séparation entre le SVG de vague et le div*/
-.upperWave{
-    margin-bottom: -5px;
-}
-
+/* =========================== Footer =================================*/
 footer{
     display: flex;
     flex-direction: row;
@@ -286,30 +331,10 @@ footer a:hover{
     color: rgb(146, 147, 148);
 }
 
-/*Partie permettant au deux div d'être côte à côte*/
-.NextToHolder{
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    flex-wrap: wrap;
-}
-.NextToItem{
-    margin: 40px;
-    width: 500px;
-    max-width: 90%;
-}
-.NextToItem  img{
-    width: 500px;
-    max-width: 90%;
-    border-radius: 30px;
-    transition: 100ms ease;
-}
-.NextToItem img:hover{
-    transform: var(--hoverImgSizeIncrease);
-}
 
-/*utilisé une fois dans la page Auteur pour le portrait*/
-#photoAuthor img{
+
+/*============================ Page Auteur ====================================*/
+#photoAuthor img{ 
     border-radius: var(--radius-border-img);
     outline: var(--outline-img-width) solid var(--outline-img-color);
     box-shadow: var(--default-shadow);
@@ -320,22 +345,7 @@ footer a:hover{
     box-shadow: var(--hoverBoxShadow);
     transform: var(--hoverImgSizeIncrease);
 }
-
-
-.Title{
-    text-align: center;
-    border-bottom: 2px dotted rgba(0, 0, 0, 0.212);
-}
-.Title h1{
-    margin-top: 110px;
-    margin-bottom: 40px
-}
-
-.source p,a{
-    color: rgb(255, 255, 255);
-}
-
-/*La partir "Loisir et hobby" dans la page Auteur*/
+/* ======== La partir "Loisir et hobby" dans la page Auteur =====*/
 .AuteurLobby {
     margin: 2%;
 }
@@ -361,7 +371,7 @@ footer a:hover{
     transform: var(--hoverImgSizeIncrease);
 }
 
-
+/*==================== Page inspiration =====================*/
 .videoInspirationHolder{
     display: flex;
     flex-wrap: wrap;
@@ -380,6 +390,9 @@ footer a:hover{
     box-shadow: var(--hoverBoxShadow);
     transform: var(--hoverImgSizeIncrease);
 }
+
+
+/*=================== Page de contact =======================*/
 
 .ContactHolder{ /*contient le formulaire de contact*/
     display: flex;
@@ -455,12 +468,10 @@ form *::placeholder{
     color: rgba(255, 255, 255, 0.452);
 }
 
-.centeredText{
-    text-align: center;
-}
 
 
-.Rapport {
+/* ===============Partie de la page rapport ===============*/
+.Rapport { 
     margin-left: 50px;
     margin-right: 50px;
 }

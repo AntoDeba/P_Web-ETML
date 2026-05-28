@@ -1,6 +1,7 @@
 var textes = document.querySelector('#texte');
 var tempsEcoulé = 0;
 var tempsEcouléAnnee = 0;
+var MAN = document.querySelector("#MAN");
 
 
 
@@ -30,6 +31,14 @@ fetch("dialogue.txt")
         }
         else
         {
+            if(lines[ID].includes("[Conducteur de MAN]"))
+            {
+                MAN.src="../img/MAN-idle-2.gif";
+                console.log("C'est le MAN qui parle");
+            }
+            else{
+                MAN.src="../img/MAN.png";
+            }
             textes.textContent = lines[ID];
             ID = ID + 1;
         }
